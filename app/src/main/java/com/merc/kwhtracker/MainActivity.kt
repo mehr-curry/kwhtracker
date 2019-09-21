@@ -5,6 +5,8 @@ import android.graphics.ColorFilter
 import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Environment
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
@@ -13,6 +15,10 @@ import android.widget.EditText
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.FileWriter
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +43,28 @@ class MainActivity : AppCompatActivity() {
 //            }
 //            false
 //        }
+        btnSave.setOnClickListener{view -> writeEntry()}
+    }
+
+    fun writeEntry(){
+        val appDataDir = getExternalFilesDir(null)
+
+        Log.d("writeEntry",  appDataDir?.absolutePath)
+
+        if(appDataDir == null){
+            Log.e("writeEntry",  "Could not retrieve application data directory")
+            return
+        }
+
+        val file = File(appDataDir.absolutePath + "/current.csv")
+        if(!file.exists()) {
+            file.createNewFile()
+        }
+
+        val dataFile :FileWriter = FileWriter(file, true)
+
+        dataFile.appendln("test")
+        dataFile.close()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
