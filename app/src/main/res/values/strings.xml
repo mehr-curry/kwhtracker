@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">KwhTracker</string>
     <string name="action_settings">Settings</string>
+    <string name="lblKwhText">kwh</string>
+    <string name="lblTotalDistanceText">Total distance</string>
+    <string name="lblPercentText">Percent</string>
+    <string name="lblCurrentDateTimeText">Timestamp %1$t</string>
+    <string name="lblIsStartRecordText" >Start record?</string>
+    <string name="btnSave">Save</string>
 </resources>

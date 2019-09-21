@@ -1,12 +1,18 @@
 package com.merc.kwhtracker
 
+import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.PorterDuff
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +25,18 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+//        txtKwh.setOnKeyListener { view, keyCode, eventData ->
+//            if (view is EditText &&
+//                view.text.isNotEmpty()
+//            ) {
+//                val kw: Float? = view.text.toString().toFloatOrNull()
+//                if (kw == null) {
+//                    view.background.colorFilter.apply { -> Color.RED }
+//                }
+//            }
+//            false
+//        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
